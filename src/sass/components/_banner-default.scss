@@ -1,0 +1,87 @@
+.banner__default {
+    position: relative;
+    margin-bottom: 60px;
+
+    img {
+        display: block;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .banner__desktop {
+        display: none;
+    }
+
+    .banner__tablet {
+        display: none;
+    }
+
+    @include media (get-bp(tablet-portrait)) {
+        .banner__mobile {
+            display: none;
+        }
+
+        .banner__tablet {
+            display: block;
+        }
+    }
+
+    @include media (get-bp(desktop)) {
+        .banner__tablet {
+            display: none;
+        }
+
+        .banner__desktop {
+            display: block;
+        }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: max-content;
+        background: none;
+        display: none;
+
+        @include media (get-bp(tablet-landscape)) {
+            display: block;
+        }
+
+        i {
+            font-size: 24px;
+            color: get-color(primary);
+
+            @include media (get-bp(desktop)) {
+                font-size: 52px;
+            }
+        }
+    }
+
+    .swiper-button-disabled {
+        display: none;
+    }
+
+    .swiper-pagination {
+        
+        @include media (get-bp(desktop)) {
+            display: none;
+        }
+    }
+
+    //paginacao estilo bola
+    .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        background-color: transparent;
+        border: 2px solid get-color(primary);
+        transition: 400ms;
+    }
+
+    //paginacao estilo linha
+    // .swiper-pagination-bullet {
+    //     width: 30px;
+    //     height: 6px;
+    //     border-radius: 10px;
+    //     background-color: get-color(primary);
+    //     transition: 400ms;
+    // }
+}

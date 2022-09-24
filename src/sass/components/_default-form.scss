@@ -1,0 +1,137 @@
+.default-form {
+    //também funciona declarando a variável e usando get-color(), caso prefira. Por exemplo:
+    //$color-label: get-color(primary);
+    $color-label: rgba(0,0,0,0.8);
+    $color-border: rgba(0,0,0,0.6);
+    $color-label-active: #e60088;
+    $color-border-active: #e60088;
+
+    h2 {
+        margin-top: 4rem;
+        font-family: $font-family-primary;
+    }
+
+    .one-column {
+        @include media (get-bp(tablet-landscape)) {
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: flex-start;
+        }
+    }
+
+    .two-columns {
+        @include media (get-bp(tablet-landscape)) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 16px;
+            align-items: flex-start;
+        }
+    }
+
+    .field {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+        margin-bottom: 12px;
+
+        &:focus-within {
+            label {
+                color: $color-label-active;
+            }
+
+            input, 
+            select,
+            textarea {
+                border: 1px solid $color-border-active;
+            }
+        }
+
+        label {
+            font-family: $font-family-primary;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: $color-label;
+            margin-bottom: 6px;
+        }
+
+        input, 
+        select {
+            width: 100%;
+            height: 40px;
+            border: 1px solid $color-border;
+            border-radius: 4px;
+            padding-left: 1rem;
+            outline: none;
+            background-color: get-color(light);
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            resize: none;
+            padding: 1rem;
+            border: 1px solid $color-border;
+            border-radius: 4px;
+            outline: none;
+            background-color: get-color(light);
+
+            @include media (get-bp(tablet-landscape)) {
+                height: 120px;
+            }
+        }
+    }
+
+    .field--checkbox {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: row;
+        margin-bottom: 30px;
+
+        label {
+            font-family: $font-family-primary;
+            font-weight: 400;
+            font-size: 14px;
+            text-transform: inherit;
+            color: $color-label;
+
+            a {
+                color: get-color(primary);
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        input {
+            width: 24px;
+            height: unset;
+            transform: translateY(1px);
+        }
+    }
+
+    .field--submit {
+        input {
+            display: inline-block;
+            width: 100%;
+            font-family: $font-family-primary;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            padding: 1rem 2rem;
+            background-color: get-color(light);
+            border: 1px solid get-color(primary);
+            border-radius: 6px;
+            color: get-color(primary);
+            transition: 400ms;
+
+            &:hover {
+                background-color: get-color(primary);
+                color: get-color(light);
+            }
+        }
+    }
+}
